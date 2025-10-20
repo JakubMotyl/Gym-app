@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+body {
+  background: #1B1B1F;
+  font-family: "Poppins", sans-serif;
+}
+
+@layer components {
+  .p-container {
+    @apply lg:px-32 md:px-24 sm:px-16 px-8 py-0;
+  }
+  .nav-btn {
+    @apply lg:text-[0.95rem] md:text-[0.9rem] text-[0.85rem] hover:text-[#00ff6a] duration-200 cursor-pointer;
+  }
+  .dropdown-item {
+    background: #1e293b;
+    opacity: 0;
+    animation: slideIn 0.3s forwards;
+  }
+  .dropdown-item:hover {
+    background: #1B1B1F;
+  }
+  .train-socials {
+    @apply w-8 h-8 bg-purple-200 md:text-[1.15rem] text-[1rem] flex items-center justify-center rounded cursor-pointer text-black hover:scale-105 duration-100;
+  }
+  .ribbon {
+    position: absolute;
+    color: #000;
+    background: #FFF;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    top: 0;
+    right: 0;
+    transform: translateX(30%) translateY(0%) rotate(45deg);
+    transform-origin: top left;
+  }
+  .test-btn {
+    background: transparent;
+    color: #99a1af;
+    border: 1px solid #99a1af;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .test-btn:active {
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+  }
+  .test-btn:hover {
+    border: 1px solid white;
+    color: #fff;
+  }
+  .footer-title {
+    @apply text-white font-semibold md:text-[1rem] text-[0.9rem];
+  }
+  .footer-sub {
+    @apply text-gray-300 font-light duration-200 md:text-[0.9rem] text-[0.8rem];
+  }
+  .footer-sub:hover { 
+    @apply text-gray-100;
+  }
+  .shadow-signup {
+    box-shadow: 7px 7px 0 7px rgba(30, 41, 59, 0.35);
+  }
+  .input-form {
+    @apply w-full p-3 rounded border-0 outline-2 outline-[#00C853] md:text-[0.85rem] text-[0.75rem];
+  }
+  .input-form::placeholder {
+    @apply font-extralight text-gray-300 md:text-[0.85rem] text-[0.75rem];
+  }
+  .input-form:focus {
+    box-shadow: inset 0 -3px 5px rgba(255, 255, 255, 0.7);
+  }
+  .btn-form {
+    @apply w-full p-3 md:text-[0.85rem] text-[0.75rem] rounded bg-white text-[#00C853] font-medium cursor-pointer hover:tracking-wider duration-100;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

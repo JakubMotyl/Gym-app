@@ -1,16 +1,77 @@
-# React + Vite
+# FitCore — React + Vite Gym Landing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Lightweight, responsive gym landing site built with React, Vite and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Quick start
+- Install dependencies:
+```sh
+npm install
+```
+- Start dev server:
+```sh
+npm run dev
+```
+- Build:
+```sh
+npm run build
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech stack
+- React, Vite, Tailwind CSS
+- React Router
+- ESLint
 
-## React Compiler
+## Key files & components
+- App entry & routing: [`App`](src/App.jsx) — [src/App.jsx](src/App.jsx)  
+- Main mount: [`main.jsx`](src/main.jsx) — [src/main.jsx](src/main.jsx)  
+- Navigation component: [`Navbar`](src/Navbar.jsx) — [src/Navbar.jsx](src/Navbar.jsx)  
+- Home page: [`Home`](src/pages/Home.jsx) — [src/pages/Home.jsx](src/pages/Home.jsx)  
+- Home hero: [`Hero`](src/Home/Hero.jsx) — [src/Home/Hero.jsx](src/Home/Hero.jsx)  
+- Sign Up page: [`SignUp`](src/pages/SignUp.jsx) — [src/pages/SignUp.jsx](src/pages/SignUp.jsx)  
+- Sign Up hero/card: [`SignCard`](src/SignUp/Hero.jsx) — [src/SignUp/Hero.jsx](src/SignUp/Hero.jsx)  
+- Global styles / Tailwind: [`index.css`](src/index.css) — [src/index.css](src/index.css)  
+- Vite config: [`vite.config.js`](vite.config.js) — [vite.config.js](vite.config.js)  
+- Lint config: [`eslint.config.js`](eslint.config.js) — [eslint.config.js](eslint.config.js)  
+- HTML template: [`index.html`](index.html) — [index.html](index.html)  
+- Package metadata: [`package.json`](package.json) — [package.json](package.json)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project structure
+- Root
+  - [.gitignore](.gitignore)
+  - [eslint.config.js](eslint.config.js)
+  - [index.html](index.html)
+  - [package.json](package.json)
+  - [vite.config.js](vite.config.js)
+  - public/
+- src/
+  - [App.jsx](src/App.jsx)
+  - [Footer.jsx](src/Footer.jsx)
+  - [index.css](src/index.css)
+  - [main.jsx](src/main.jsx)
+  - [Navbar.jsx](src/Navbar.jsx)
+  - assets/
+    - Classes/
+    - Testimonials/
+    - Trainers/
+  - data/
+    - [pricingData.js](src/data/pricingData.js)
+    - [testimonialsData.js](src/data/testimonialsData.js)
+  - Home/
+    - [Advertisement.jsx](src/Home/Advertisement.jsx)
+    - [Classes.jsx](src/Home/Classes.jsx)
+    - [Hero.jsx](src/Home/Hero.jsx)
+    - [JoinBanner.jsx](src/Home/JoinBanner.jsx)
+    - [Pricing.jsx](src/Home/Pricing.jsx)
+    - [Testimonials.jsx](src/Home/Testimonials.jsx)
+    - [Trainers.jsx](src/Home/Trainers.jsx)
+  - pages/
+    - [Home.jsx](src/pages/Home.jsx)
+    - [SignUp.jsx](src/pages/SignUp.jsx)
+  - SignUp/
+    - [Hero.jsx](src/SignUp/Hero.jsx)
 
-## Expanding the ESLint configuration
+## Notes & tips
+- Tailwind component utilities (e.g. `.dropdown-item`, `.p-container`, `.input-form`) live in [`src/index.css`](src/index.css) — [src/index.css](src/index.css).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Contributing
+Keep style changes in [src/index.css](src/index.css).

@@ -2,6 +2,13 @@
 
 Lightweight, responsive gym landing site built with React, Vite and Tailwind CSS.
 
+Website: [FitCore](https://gym-app-pink-beta.vercel.app/)
+
+## Tech stack
+- React, Vite, Tailwind CSS
+- React Router
+- ESLint
+
 ## Quick start
 - Install dependencies:
 ```sh
@@ -15,11 +22,6 @@ npm run dev
 ```sh
 npm run build
 ```
-
-## Tech stack
-- React, Vite, Tailwind CSS
-- React Router
-- ESLint
 
 ## Key files & components
 - App entry & routing: [`App`](src/App.jsx) — [src/App.jsx](src/App.jsx)  

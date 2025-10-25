@@ -24,6 +24,28 @@ const ClassesTop = () => {
 }
 
 const GridCard = ({ image, title, text }) => {
+  const [isMobile, SetIsMobile] = useState(false);
+  const [showDetails, setShowDetails] = useState(true);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width:768px)')
+
+    const handleResize = e => {
+      if (e.matches) {
+        SetIsMobile(true)
+      } else {
+        SetIsMobile(false);
+      }
+    };
+
+    handleResize(mediaQuery);
+
+    mediaQuery.addEventListener('change', handleResize);
+
+    return () => mediaQuery.removeEventListener('change', handleResize)
+
+  }, [])
+
   return (
     <div className='h-[70vh] mx-auto aspect-[4/5] w-full'>
       {/* Background image */}
@@ -31,25 +53,73 @@ const GridCard = ({ image, title, text }) => {
         className='h-full w-full bg-center bg-cover cursor-pointer relative group rounded-[0.25rem]'
         style={{backgroundImage: `url(${image})`}}
       >
-        {/* Dark bg */}
-        <div className='absolute inset-0 group-hover:bg-black/60'></div>
+        {isMobile ? (  
+            <>
+              {/* Mobile devices */}
 
-        {/* Hover content */}
-        <div className='relative flex flex-col justify-between items-center text-center h-full px-6 py-15 opacity-0 -translate-x-10 
-          group-hover:opacity-100 group-hover:translate-x-0 duration-500'
-        >
-          <div className='flex flex-col gap-3'>
-            <p className='text-white font-semibold text-[1.75rem] leading-tight'>{title}</p>
-            <span className='text-white text-[1rem] font-light'>{text}</span>
-          </div>
-          <a 
-            href="#"
-            className='inline-flex justify-center bg-[#00C853] py-3 px-6 md:text-[1.25rem] font-light text-white
-            rounded-[0.25rem] hover:bg-[#00c853]/80 hover:duration-200 border border-[#00C853] lg:w-fit w-full'
-          >
-            Join Now
-          </a>
-        </div>
+              {/* Arrow */}
+              {showDetails && (
+                <div className='absolute left-3 top-3 text-2xl cursor-pointer text-white'
+                  onClick={() => setShowDetails(false)}
+                >
+                  <i className="fa-solid fa-arrow-right"></i>
+                </div>
+              )};
+
+              {/* Dark bg */}
+              {!showDetails && (
+                <>
+                  {/* Arrow */}
+                  <div className='absolute left-3 top-3 text-2xl cursor-pointer z-50 text-white'
+                    onClick={() => setShowDetails(true)}
+                  >
+                    <i className="fa-solid fa-arrow-left"></i>
+                  </div>
+
+                  <div className='absolute inset-0 bg-black/60'></div>
+
+                  {/* Hover content */}
+                  <div className='relative flex flex-col justify-between items-center text-center h-full px-6 py-15'
+                  >
+                    <div className='flex flex-col gap-3'>
+                      <p className='text-white font-semibold text-[1.75rem] leading-tight'>{title}</p>
+                      <span className='text-white text-[1rem] font-light'>{text}</span>
+                    </div>
+                    <a 
+                      href="#"
+                      className='inline-flex justify-center bg-[#00C853] py-3 px-6 md:text-[1.25rem] font-light text-white
+                      rounded-[0.25rem] hover:bg-[#00c853]/80 hover:duration-200 border border-[#00C853] lg:w-fit w-full'
+                    >
+                      Join Now
+                    </a>
+                  </div>
+                </>
+              )}
+            </>
+        ) : (
+          <>
+            {/* Laptop/PC devices */}
+            {/* Dark bg */}
+            <div className='absolute inset-0 group-hover:bg-black/60'></div>
+
+            {/* Hover content */}
+            <div className='relative flex flex-col justify-between items-center text-center h-full px-6 py-15 opacity-0 -translate-x-10 
+              group-hover:opacity-100 group-hover:translate-x-0 duration-500'
+            >
+              <div className='flex flex-col gap-3'>
+                <p className='text-white font-semibold text-[1.75rem] leading-tight'>{title}</p>
+                <span className='text-white text-[1rem] font-light'>{text}</span>
+              </div>
+              <a 
+                href="#"
+                className='inline-flex justify-center bg-[#00C853] py-3 px-6 md:text-[1.25rem] font-light text-white
+                rounded-[0.25rem] hover:bg-[#00c853]/80 hover:duration-200 border border-[#00C853] lg:w-fit w-full'
+              >
+                Join Now
+              </a>
+            </div>
+          </>
+        )}        
       </div>
     </div>
   )

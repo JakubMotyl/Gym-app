@@ -176,7 +176,7 @@ export default function Classes() {
       ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} duration-1000`}
     >
       <ClassesTop />
-      <div className='flex-1 grid grid-cols-[repeat(auto-fit,minmax(22rem,1fr))] gap-6 justify-items-center'>
+      <div className='flex-1 grid grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] gap-6 place-items-center'>
         {classesData.map((cls, id) => (
           <GridCard
             key={id}
